@@ -1,0 +1,29 @@
+version: 2
+
+jobs:
+  build: 
+    docker:
+      - image: circle/python:3.7
+
+working_directory: ~/devops2
+    steps:
+      # 1 Obtain the repo from GitHub 
+      - checkout
+      # 2 Create virtual environment and install dependecies 
+      - run: 
+        name: install dependecies 
+        command: |
+        python3 -m venv
+        - venc/bin/active
+        pip install -r requirements.txt
+
+      # 3 Run coding convention software and also the tester 
+        name: run tests
+        command: |
+          - venc/bin/active
+          flake8 --exclude-env* --statistics
+          pytest --junixml-test-results/junit.xml
+      - store_test_results:
+          path: test-results  
+      - store_artifacts:
+          path: test-results
