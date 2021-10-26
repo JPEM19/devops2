@@ -15,8 +15,8 @@ jobs:
           name: install dependencies
           command: |
             python3 -m venv venv
-            - venv/bin/activate
-            pip3 install -r requirements.txt
+            _ venv/bin/activate
+            pip install -r requirements.txt
 
       # 3 Run coding convention software and also the tester 
       - run: 
