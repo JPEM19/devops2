@@ -17,9 +17,16 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
-            pip install --upgrade pip
-            pip install pytest-cov
+            #pip install --upgrade pip
+            #pip install pytest-cov
       
+      - run: 
+          name: install flake8 
+          command: | 
+            python3 -m venv venv 
+            . venv/bin/activate
+            pip install flake8 
+            
       # 3 Run coding convention software and also the tester 
       - run: 
           name: run tests
